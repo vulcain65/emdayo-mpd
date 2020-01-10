@@ -7,6 +7,9 @@ services:
     ports:
     - "8001:8000"
     - "6601:6600"
+    environment:
+    - GID_AUDIO="29"
+   
     volumes:
     - /home/daniel/docker/persist/mpd/config:/mpd/conf
     - /home/daniel/docker/persist/mpd/data:/mpd/data
