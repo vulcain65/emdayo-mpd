@@ -1,0 +1,16 @@
+version: '3'
+services:
+  mpd:
+    build:
+       context: .
+       dockerfile: Dockerfile
+    ports:
+    - "8001:8000"
+    - "6601:6600"
+    volumes:
+    - /home/daniel/docker/persist/mpd/config:/mpd/conf
+    - /home/daniel/docker/persist/mpd/data:/mpd/data
+    - /home/daniel/docker/persist/mpd/playlists:/mpd/playlists
+    - /cubox01/music:/mpd/music:ro
+    devices:
+    - /dev/snd:/dev/snd
