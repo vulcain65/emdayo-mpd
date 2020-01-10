@@ -13,9 +13,6 @@ RUN set -x && apk --no-cache add \
 	mpc \
 	&& mkdir -p /mpd/conf/ && mkdir -p /mpd/music && mkdir -p /mpd/playlists && mkdir -p /mpd/data && mkdir -p /run/mpd/ \
 	&& chown -R mpd:audio /mpd && chown -R mpd:audio /run/mpd/
-# for use audio debian server
-RUN set -x && addgroup -g 29 audio2
-RUN set -x && adduser mpd audio2
 
 COPY mpd.conf /mpd/conf/mpd.conf
 COPY start.sh /start.sh
