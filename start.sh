@@ -7,10 +7,8 @@ if [ -n "${GID_AUDIO}" ]; then
 fi
 
 if [ ! -f "/mpd/conf/mpd.conf" ]; then
-    cp addgroup -g ${GID_AUDIO} audio2
-    adduser mpd audio2
+    cp /etc/mpd.conf /mpd/conf/mpd.conf
 fi
-
 
 chown -R mpd:audio /mpd && chown -R mpd:audio /run/mpd/
 
