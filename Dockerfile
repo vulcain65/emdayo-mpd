@@ -1,4 +1,5 @@
-FROM alpine:3.10
+#FROM alpine:3.10
+FROM alpine
 
 LABEL org.opencontainers.image.authors="" \
 	org.opencontainers.image.title="MPD" \
@@ -14,7 +15,7 @@ RUN set -x && apk --no-cache add \
 	&& mkdir -p /mpd/conf/ && mkdir -p /mpd/music && mkdir -p /mpd/playlists && mkdir -p /mpd/data && mkdir -p /run/mpd/ \
 	&& chown -R mpd:audio /mpd && chown -R mpd:audio /run/mpd/
 
-COPY mpd.conf /mpd/conf/mpd.conf
+COPY /etc/mpd.conf /mpd/conf/mpd-dist.conf
 COPY start.sh /start.sh
 
 VOLUME ["/mpd/conf","/mpd/music","/mpd/playlists","/mpd/data","/run/mpd"]
