@@ -12,7 +12,7 @@ RUN set -x && apk --no-cache add \
     alsa-utils \
 	mpd \
 	mpc \
-	&& mkdir -p /mpd/conf/ && mkdir -p /mpd/music && mkdir -p /mpd/playlists && mkdir -p /mpd/data && mkdir -p /run/mpd/ \
+	&& mkdir -p /mpd/conf/ /mpd/music /mpd/playlists /mpd/data /run/mpd/ \
 	&& chown mpd:audio /mpd /mpd/conf /mpd/music /mpd/playlists /mpd/data \
 	&& chown -R mpd:audio /run/mpd/
 
