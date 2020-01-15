@@ -13,7 +13,8 @@ RUN set -x && apk --no-cache add \
 	mpd \
 	mpc \
 	&& mkdir -p /mpd/conf/ && mkdir -p /mpd/music && mkdir -p /mpd/playlists && mkdir -p /mpd/data && mkdir -p /run/mpd/ \
-	&& chown -R mpd:audio /mpd && chown -R mpd:audio /run/mpd/
+	&& chown mpd:audio /mpd /mpd/conf /mpd/music /mpd/playlists /mpd/data \
+	&& chown -R mpd:audio /run/mpd/
 
 COPY /etc/mpd.conf /mpd/conf/mpd-dist.conf
 COPY start.sh /start.sh
